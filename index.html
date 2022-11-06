@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown to April 1st</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Helvetica, Arial, sans-serif;
+      color: #efefef;
+      background-color: #333;
+    }
+
+    #content {
+      max-width: 1024px;
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    #cd {
+      margin-bottom: 1.5em;
+    }
+
+    h1 {
+      font-size: 20px;
+    }
+
+    img {
+      border: 2px solid black;
+      width: 100%;
+    }
+
+  </style>
+  <script>
+    const countDownDate = new Date("April 1, 2023").getTime();
+
+    // Update the count down every 1 second
+    let x = setInterval(function () {
+
+      // Get today's date and time
+      let now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      let distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+      document.getElementById("cd").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("cd").innerHTML = "You Made It!!!";
+      }
+    }, 1000);
+  </script>
+</head>
+
+<body>
+  <div id="content">
+    <h1>April 1, 2023 is in...</h1>
+    <div id="cd"><em>Generating....</em></div>
+    <img src="image.png" alt="Bali baby">
+  </div>
+</body>
+
+</html>
